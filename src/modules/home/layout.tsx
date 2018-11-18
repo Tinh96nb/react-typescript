@@ -1,29 +1,28 @@
+import 'scss/vendors/bootstrap.min.css';
+import 'scss/auth.scss';
+import * as handWave from 'images/apple-icon.png';
+
 import * as React from 'react';
 import { connect } from 'react-redux';
+
 interface Props {
-    
-//   api: ApiEntity;
-//   deleteAxiosError(): void;
+  
 }
 
 class LayoutComponent extends React.Component<Props, any> {
 
-  public render() {
+  render() {
     return (
-        <div className={`portal-page layout-boxed`}>
-          <div id="content" className="b-gird">
-            <div className="main-container">
-              {this.props.children}
-            </div>
-          </div>
-        </div>
+      <div className='wraper'>
+        <img src={handWave} />
+        {this.props.children}
+      </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    //api: state.api
   };
 };
 

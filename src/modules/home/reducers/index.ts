@@ -1,19 +1,16 @@
-//import { ApiEntity } from 'common/types';
+import { ApiEntity } from 'common/types';
 import { combineReducers } from 'redux';
-//import { apiReducer } from 'redux/api';
-//import { sessionUserReducer, SessionUserState } from 'redux/sessionUser'
+import { apiReducer } from 'redux/api';
 import { homeReducer } from './homeReducer';
 
 import { HomeEntity } from '../types';
 
 export interface State {
-  //api: ApiEntity;
-  //sessionUser: SessionUserState,
+  api: ApiEntity;
   home: HomeEntity;
 }
 
 export const state = combineReducers<State>({
-  //api: apiReducer,
-  //sessionUser: sessionUserReducer,
+  api: apiReducer,
   home: homeReducer,
 });

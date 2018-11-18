@@ -1,33 +1,30 @@
 import * as React from "react";
-import Button from '@material-ui/core/Button';
+import Button from 'react-bootstrap/lib/Button';
 
-export interface HelloProps { 
-	menu: any;
-	fetchMenu(params): void;
+export interface Props { 
+	articles: any;
+	fetchArticle(): void;
 }
 
-export default class Hello extends React.Component<HelloProps, {}> {
+export default class HomePage extends React.Component<Props, {}> {
   constructor(props) {
     super(props);
     this.state = {};
   }
   componentDidMount(){
-    this.props.fetchMenu({});
+    this.props.fetchArticle();
   }
   render() {
-		const {menu} = this.props;
+		const {articles} = this.props;
 		return (
 			<div className="test">
-				<h1>Hello from homepage!</h1>
-				{menu.length > 0 
-					? menu.map((e, index) => {
+				<h1>homepage!</h1>
+				{articles.length > 0 
+					? articles.map((e, index) => {
 						return <p key={index}>{e.title}</p>
 					})
 					: null
 				}
-				<Button variant="contained" color="primary">
-					Hello World
-				</Button>
 			</div>
 		)
   }

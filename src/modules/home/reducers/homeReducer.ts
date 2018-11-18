@@ -1,4 +1,17 @@
+import * as request from 'api/request_dashboard';
+import { requestAxios } from 'redux/api';
+
+const FETCH_ARTICLES = 'home/FETCH_ARTICLES';
 const FETCH_MENU = 'home/FETCH_MENU';
+
+export const fetchArticle = (parameters = {}) => {
+  return (dispatch) => {
+    dispatch(requestAxios(request.getListArticle(parameters)))
+    .then((response) => { 
+      dispatch({ type: FETCH_ARTICLES, articles: response });
+    });
+  }
+}
 
 export const fetchMenu = (parameters) => {
   return (dispatch) => {
@@ -17,11 +30,13 @@ export const fetchMenu = (parameters) => {
 }
 
 const initialState = {
-  menu: []
+  menu: [],
+  articles: [],
 }
 export const homeReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_MENU:
+    case FETCH_ARTICLES:
       return { ...state, ...action };
     default:
       return state;

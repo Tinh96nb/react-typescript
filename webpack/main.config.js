@@ -14,30 +14,30 @@ const getRules = util.getRules
 
 /** *********** END : IMPORT AREA ********** */
 const moduleHtmls = [
-  // {
-  //   title: 'Login',
-  //   template: `${publicPath}/index.html`,
-  //   filename: 'auth.html',
-  //   chunks: ['auth']
-  // },
-  // {
-  //   title: 'News',
-  //   template: `${publicPath}/index.html`,
-  //   filename: 'news.html',
-  //   chunks: ['news']
-  // },
+  {
+    title: 'Login',
+    template: `${publicPath}/index.html`,
+    filename: 'auth.html',
+    chunks: ['auth']
+  },
   {
     title: 'Home',
     template: `${publicPath}/index.html`,
     filename: 'index.html',
     chunks: ['home']
-  }
+  },
+  {
+    title: 'Dashboard',
+    template: `${publicPath}/index.html`,
+    filename: 'dashboard.html',
+    chunks: ['dashboard']
+  },
 ]
 
 const erpModuleChunks = [
-  // { key: 'auth', path: './modules/auth/index.tsx' },
-  // { key: 'news', path: './modules/news/index.tsx' },
-  { key: 'home', path: './modules/home/index.tsx' }
+  { key: 'auth', path: './modules/auth/index.tsx' },
+  { key: 'home', path: './modules/home/index.tsx' },
+  { key: 'dashboard', path: './modules/dashboard/index.tsx' },
 ]
 
 const getEntryPoint = (options) => {
@@ -88,8 +88,8 @@ const getPlugins = (options) => {
   plugins.push(
     new CopyWebpackPlugin([
       {
-        from: `${dir.public}/assets`,
-        to: `${dir.build}/assets`
+        from: `${dir.public}/css`,
+        to: `${dir.build}/css`
       }
     ])
   )
@@ -137,7 +137,7 @@ const getConfig = function (options) {
       },
       port: 8080,
       disableHostCheck: true,
-      host: 'localhost',
+      host: 'react.local',
       open: true,
       inline: true,
       contentBase: dir.build
@@ -151,6 +151,10 @@ const getConfig = function (options) {
         path.resolve('./node_modules')
       ],
       extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', 'png', 'jpg', 'svg']
+    },
+    // hot reload
+    watchOptions: {
+      poll: true
     }
   }
 }

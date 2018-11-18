@@ -21,6 +21,7 @@ const getParameters = function getParameters (options) {
   }
 }
 
+// dau ra cho file sass
 const extractCSS = new MiniCssExtractPlugin({
   filename: 'css/[name].css?v=[hash]'
 })
@@ -41,7 +42,6 @@ const getRules = function (options) {
       use: [
         !isProduction ? 'style-loader' : MiniCssExtractPlugin.loader,
         'css-loader',
-        'postcss-loader',
         'sass-loader'
       ]
     },
@@ -64,13 +64,12 @@ const getRules = function (options) {
       loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
     },
     {
-      test: /\.(png|jpg|gif)$/,
+      test: /\.(png|jpg|gif|svg)$/,
       use: [
         {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 8192,
-            mimetype: 'image/png'
+            limit: 8192
           }
         }
       ]

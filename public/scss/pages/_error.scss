@@ -1,0 +1,40 @@
+.error-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 100vh;
+  background: #f3f3f3;
+  #content {
+    position: unset!important;
+  }
+
+  .aside,
+  footer {
+    display: none;
+  }
+  .main-container {
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .justify-content-center {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-md-6 {
+    flex: 0 0 50%;
+  }
+  .display-3 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 1.5rem 0 0;
+  }
+  .pt-3 {
+    padding-top: 1rem !important;
+  }
+  .text-muted {
+    color: #73818f;
+  }
+}

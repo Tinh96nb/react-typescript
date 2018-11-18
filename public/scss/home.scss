@@ -1,0 +1,14 @@
+/* vendors */
+@import "vendors/font-awesome.min";
+@import "vendors/bootstrap.min";
+
+/* components */
+@import "components/footer";
+@import "components/container";
+@import "components/header";
+@import "components/sidebar";
+
+/* Objects*/
+@import "pages/home";
+
+@import "all";

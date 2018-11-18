@@ -1,24 +1,14 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import buildRoot from "common/buildRoot";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import buildRoot from "common/helpers/buildRoot";
+import { MODULE_AUTH } from 'redux/configureStore';
 
-import { Hello } from "./components/Hello";
-import { Byebye } from "./components/Byebye";
+import { authContainer } from "./contaiers/auth";
 
 const moduleAuth = (
   <Router>
-      <ul>
-        <li>
-          <Link to="/auth/hello">Hello</Link>
-        </li>
-        <li>
-          <Link to="/auth/byebye">Byebye</Link>
-        </li>
-      </ul>
-      <Route path="/auth/hello" component={Hello} />
-      <Route path="/auth/byebye" component={Byebye} />
+      <Route path="/" component={authContainer} />
   </Router>
 );
 
-buildRoot(moduleAuth, 'AUTH_MODULE');
+buildRoot(moduleAuth, MODULE_AUTH);

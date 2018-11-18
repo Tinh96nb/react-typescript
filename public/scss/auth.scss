@@ -1,0 +1,43 @@
+@import "vendors/font-awesome.min";
+
+$main-color: #34aeca;
+$noti-color: #39dc6b;
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #e6ecf3;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+}
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  &:hover {
+    color: $main-color !important;
+  }
+}

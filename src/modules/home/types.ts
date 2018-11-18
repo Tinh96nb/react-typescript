@@ -1,3 +1,4 @@
 export interface HomeEntity {
-    menu: object;
+    menu: any;
+    articles: any;
 }

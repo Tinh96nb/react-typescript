@@ -1,0 +1,13 @@
+:local(.tp-page) {
+  .page-content {
+    clear: both;
+    min-height: calc(100vh - 110px);
+  }
+  .box {
+    border-radius: 0;
+    .box-header {
+      background: #fafafb;
+    }
+  }
+}
+
